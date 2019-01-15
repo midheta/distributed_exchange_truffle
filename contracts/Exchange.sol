@@ -62,12 +62,27 @@ contract Exchange is owned{
     // EVENTS //
     ////////////
 
+    // EVENTS for Deposit/Witdrawal
+    event DepositForTokenReceived(address indexed _from, uint indexed _symbolIndex, uint _amount, uint _timestamp);
+
+    event WithdrawalToken(address indexed _to, uint indexed _symbolIndex, uint _amount, uint _timestamp);
+
+    event DepositForEthReceived(address indexed _from, uint amount, uint _timestamp);
+
+    event WithdrawalEth(address indexed _to, uint _amount, uint _timestamp);
+
+    // Events for ORDERS
+
+    // Events for management
+    event TokenAddedToSystem(uint _symbolIndex, string _token, uint _timestamp);
+
     //////////////////////////////////
     // DEPOSIT AND WITHDRAWAL ETHER //
     //////////////////////////////////
     function depositEther() public payable {
         require(balanceEthForAddress[msg.sender] + msg.value >= balanceEthForAddress[msg.sender]);
         balanceEthForAddress[msg.sender] += msg.value;
+        emit DepositForEthReceived(msg.sender, msg.value, now);
     }
 
     function withdrawEther(uint amountInWei) public {
@@ -75,6 +90,7 @@ contract Exchange is owned{
         require(balanceEthForAddress[msg.sender] - amountInWei <= balanceEthForAddress[msg.sender]);
         balanceEthForAddress[msg.sender] -= amountInWei;
         msg.sender.transfer(amountInWei);
+        emit WithdrawalEth(msg.sender, amountInWei, now);
     }
 
     function getEthBalanceInWei() public returns (uint) {
@@ -90,6 +106,7 @@ contract Exchange is owned{
         symbolNameIndex ++;
         tokens[symbolNameIndex].symbolName = symbolName;
         tokens[symbolNameIndex].tokenContract = erc20TokenAddress;
+        emit TokenAddedToSystem(symbolNameIndex, symbolName, now);
     }
 
     function hasToken(string memory symbolName) public returns (bool) {
@@ -146,6 +163,7 @@ contract Exchange is owned{
         require(tokenBalanceForAddress[msg.sender][symbolNameIndex] + amount >= tokenBalanceForAddress[msg.sender][symbolNameIndex]);
 
         tokenBalanceForAddress[msg.sender][symbolNameIndex] += amount;
+        emit DepositForTokenReceived(msg.sender, symbolNameIndex, amount, now);
     }
 
     function withdrawToken(string memory symbolName, uint amount) public {
@@ -161,6 +179,7 @@ contract Exchange is owned{
 
         tokenBalanceForAddress[msg.sender][symbolNameIndex] -= amount;
         require(token.transfer(msg.sender, amount) == true);
+        emit WithdrawalToken(msg.sender, symbolNameIndex,amount, now);
     }
 
     function getBalance(string memory symbolName) payable public returns (uint) {
