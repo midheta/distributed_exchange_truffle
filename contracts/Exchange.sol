@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.4.21 <0.6.0;
+
 
 import "./owned.sol";
 import "./FixedSupplyToken.sol";
@@ -36,7 +37,7 @@ contract Exchange is owned{
         mapping(uint => OrderBook) buyBook;
 
         uint curBuyPrice; // last entry in the buyBook
-        uint lowesButPrice;
+        uint lowestBuyPrice;
         uint amountBuyPrices;
 
         mapping(uint => OrderBook) sellBook;
@@ -72,6 +73,17 @@ contract Exchange is owned{
     event WithdrawalEth(address indexed _to, uint _amount, uint _timestamp);
 
     // Events for ORDERS
+     event LimitSellOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
+
+    event SellOrderFulfilled(uint indexed _symbolIndex, uint _amount, uint _priceInWei, uint _orderKey);
+
+    event SellOrderCanceled(uint indexed _symbolIndex, uint _priceInWei, uint _orderKey);
+
+    event LimitBuyOrderCreated(uint indexed _symbolIndex, address indexed _who, uint _amountTokens, uint _priceInWei, uint _orderKey);
+
+    event BuyOrderFulfilled(uint indexed _symbolIndex, uint _amount, uint _priceInWei, uint _orderKey);
+
+    event BuyOrderCanceled(uint indexed _symbolIndex, uint _priceInWei, uint _orderKey);
 
     // Events for management
     event TokenAddedToSystem(uint _symbolIndex, string _token, uint _timestamp);
@@ -186,36 +198,277 @@ contract Exchange is owned{
         uint8 index = getSymbolIndexOrThrow(symbolName);
         return tokenBalanceForAddress[msg.sender][index];
     }
-    
-    ////////////////////////////
-    // ODER BOOK - BID ORDERS //
-    ////////////////////////////
-  //  function getBuyOrderBook(string memory symbolName) public pure returns(uint[], uint[]){ 
-    // returns first array: amount for the price and the second one for the volume
-    // example: someone buys 1000 weis (first returned value) for 5000 tokens (second returned value)
-  
- //   }
-    
+
+     /////////////////////////////
+    // ORDER BOOK - BID ORDERS //
+    /////////////////////////////
+  function getBuyOrderBook(string memory symbolName) public returns (uint[] memory, uint[] memory) {
+        uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
+        uint[] memory arrPricesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
+        uint[] memory arrVolumesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
+
+        uint whilePrice = tokens[tokenNameIndex].lowestBuyPrice;
+        uint counter = 0;
+        if (tokens[tokenNameIndex].curBuyPrice > 0) {
+            while (whilePrice <= tokens[tokenNameIndex].curBuyPrice) {
+                arrPricesBuy[counter] = whilePrice;
+                uint volumeAtPrice = 0;
+                uint offers_key = 0;
+
+                offers_key = tokens[tokenNameIndex].buyBook[whilePrice].offers_key;
+                while (offers_key <= tokens[tokenNameIndex].buyBook[whilePrice].offers_length) {
+                    volumeAtPrice += tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amount;
+                    offers_key++;
+                }
+
+                arrVolumesBuy[counter] = volumeAtPrice;
+
+                //next whilePrice
+                if (whilePrice == tokens[tokenNameIndex].buyBook[whilePrice].higherPrice) {
+                    break;
+                }
+                else {
+                    whilePrice = tokens[tokenNameIndex].buyBook[whilePrice].higherPrice;
+                }
+                counter++;
+
+            }
+        }
+
+        return (arrPricesBuy, arrVolumesBuy);
+
+    }
+
      ////////////////////////////
     // ODER BOOK - ASK ORDERS //
     ////////////////////////////
-   //   function getSellOrderBook(string symbolName) pure returns(uint[], uint[]){ 
-        
+   //   function getSellOrderBook(string symbolName) pure returns(uint[], uint[]){
+
    // }
-    
+
      ////////////////////////////
     // NEW ODER - BID ORDER //
     ////////////////////////////
- //   function buyToken(string symbolName, uint priceInWei, uint amount){
-        
-//    }
-    
-       ////////////////////////////
+    function buyToken(string memory symbolName, uint priceInWei, uint amount) public{
+        uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
+        uint total_amount_ether_necessary = 0;
+        uint total_amount_ether_available = 0;
+
+        // If we have enough ether, we can buy that:
+        total_amount_ether_necessary = amount * priceInWei;
+
+        // Owerflow Check
+        require(total_amount_ether_necessary >= amount);
+        require(total_amount_ether_necessary >= priceInWei);
+        require(balanceEthForAddress[msg.sender] >= total_amount_ether_necessary);
+        require(balanceEthForAddress[msg.sender] - total_amount_ether_necessary >= 0);
+
+        // First deduct the amount of ether from our balance
+        balanceEthForAddress[msg.sender] -= total_amount_ether_necessary;
+
+        if(tokens[tokenNameIndex].amountSellPrices == 0 || tokens[tokenNameIndex].curSellPrice > priceInWei)
+        {
+            // Limit order: We don't have enough offers to fulfill the amount
+            // Add the order to the OrderBook
+            addBuyOffer(tokenNameIndex, priceInWei, amount, msg.sender);
+            // And, emit the event
+            emit LimitBuyOrderCreated(tokenNameIndex, msg.sender, amount, priceInWei, tokens[tokenNameIndex].buyBook[priceInWei].offers_length);
+        }
+        else
+        {
+            // Market order: Current sell price is smaller or equal to buy price!
+            revert();
+        }
+    }
+
+    ///////////////////////////
+    // BID LIMIT ORDER LOGIC //
+    ///////////////////////////
+    function addBuyOffer(uint8 tokenIndex, uint priceInWei, uint amount, address who) internal {
+        // Increase offers length
+        tokens[tokenIndex].buyBook[priceInWei].offers_length ++;
+        // Add new offer for this price for this token
+        tokens[tokenIndex].buyBook[priceInWei].offers[tokens[tokenIndex].buyBook[priceInWei].offers_length] = Offer(amount, who);
+
+        // Take care of order linked list only if this is the first offer for this price
+        if(tokens[tokenIndex].buyBook[priceInWei].offers_length == 1)
+        {
+            tokens[tokenIndex].buyBook[priceInWei].offers_key = 1;
+            // We have a new buy order - increase the counter, so we can set the getOrderBook array later
+            tokens[tokenIndex].amountBuyPrices ++;
+
+            // LowerPrice and HigherPrice have to be set
+            uint curBuyPrice = tokens[tokenIndex].curBuyPrice;
+            uint lowestBuyPrice = tokens[tokenIndex].lowestBuyPrice;
+            if(lowestBuyPrice == 0 || lowestBuyPrice > priceInWei)
+            {
+                if(curBuyPrice == 0)
+                {
+                    // There is no buy Order yet, we insert the first one ...
+                    tokens[tokenIndex].curBuyPrice = priceInWei;
+                    tokens[tokenIndex].buyBook[priceInWei].higherPrice = priceInWei;
+                    tokens[tokenIndex].buyBook[priceInWei].lowerPrice = 0;
+                }
+                else
+                {
+                    // find the current lowestBuyPrice and change it's 'lower' price
+                    tokens[tokenIndex].buyBook[lowestBuyPrice].lowerPrice = priceInWei;
+                    tokens[tokenIndex].buyBook[priceInWei].higherPrice = lowestBuyPrice;
+                    tokens[tokenIndex].buyBook[priceInWei].lowerPrice = 0;
+                }
+                tokens[tokenIndex].lowestBuyPrice = priceInWei;
+            }
+            else if(curBuyPrice < priceInWei) // this buy order is the new highest price
+            {
+                tokens[tokenIndex].buyBook[curBuyPrice].higherPrice = priceInWei;
+                tokens[tokenIndex].buyBook[priceInWei].lowerPrice = curBuyPrice;
+                tokens[tokenIndex].buyBook[priceInWei].higherPrice = priceInWei;
+                tokens[tokenIndex].curBuyPrice = priceInWei;
+            }
+            else {
+                // We are somewhere in the middle. We need to find the right spot first
+                uint price = tokens[tokenIndex].curBuyPrice;
+                bool placeFound = false;
+                while(price > 0 && !placeFound)
+                {
+                    if(price < priceInWei
+                    && tokens[tokenIndex].buyBook[price].higherPrice > priceInWei)
+                    {
+                        // place for this order is found
+                        placeFound = true;
+                        // Set lowerPrice and higherPrice for this buy order
+                        tokens[tokenIndex].buyBook[priceInWei].lowerPrice =  price;
+                        tokens[tokenIndex].buyBook[priceInWei].higherPrice =  tokens[tokenIndex].buyBook[price].higherPrice;
+                        // Set the higherPrice'd order-book entries lower pric to the current price
+                        tokens[tokenIndex].buyBook[tokens[tokenIndex].buyBook[price].higherPrice].lowerPrice = priceInWei;
+                        // Set the lowerPrices'd order-book entries higherPrice to the current Price
+                        tokens[tokenIndex].buyBook[price].higherPrice = priceInWei;
+                    }
+
+                    price = tokens[tokenIndex].buyBook[price].lowerPrice;
+
+                }
+            }
+
+        }
+
+
+    }
+     ////////////////////////////
     // NEW ODER - ASK ORDER //
     ////////////////////////////
-  //  function sellToken(string symbolName, uint priceInWei, uint amount) {
-        
- //   }
+    function sellToken(string memory symbolName, uint priceInWei, uint amount) public {
+        uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
+        uint total_amount_ether_necessary = 0;
+        uint total_amount_ether_available = 0;
+
+
+        if (tokens[tokenNameIndex].amountBuyPrices == 0 || tokens[tokenNameIndex].curBuyPrice < priceInWei) {
+
+            //if we have enough ether, we can buy that:
+            total_amount_ether_necessary = amount * priceInWei;
+
+            //overflow check
+            require(total_amount_ether_necessary >= amount);
+            require(total_amount_ether_necessary >= priceInWei);
+            require(tokenBalanceForAddress[msg.sender][tokenNameIndex] >= amount);
+            require(tokenBalanceForAddress[msg.sender][tokenNameIndex] - amount >= 0);
+            require(balanceEthForAddress[msg.sender] + total_amount_ether_necessary >= balanceEthForAddress[msg.sender]);
+
+            //actually subtract the amount of tokens to change it then
+            tokenBalanceForAddress[msg.sender][tokenNameIndex] -= amount;
+
+            //limit order: we don't have enough offers to fulfill the amount
+
+            //add the order to the orderBook
+            addSellOffer(tokenNameIndex, priceInWei, amount, msg.sender);
+            //and emit the event.
+            emit LimitSellOrderCreated(tokenNameIndex, msg.sender, amount, priceInWei, tokens[tokenNameIndex].sellBook[priceInWei].offers_length);
+
+        }
+        else
+        {
+             // Market order: Current buy price is smaller or equal to sell price!
+             revert();
+        }
+    }
+
+    ///////////////////////////
+    // BID LIMIT ORDER LOGIC //
+    ///////////////////////////
+    function addSellOffer(uint8 tokenIndex, uint priceInWei, uint amount, address who) internal
+    {
+
+        // Increase offers length token
+        tokens[tokenIndex].sellBook[priceInWei].offers_length ++;
+        // Add new offer for this price for this token
+        tokens[tokenIndex].sellBook[priceInWei].offers[tokens[tokenIndex].sellBook[priceInWei].offers_length] = Offer(amount, who);
+        // Take care of order linked list only if this is the first offer for the price
+
+        if(tokens[tokenIndex].sellBook[priceInWei].offers_length == 1)
+        {
+            uint curSellPrice = tokens[tokenIndex].curSellPrice; // the lowest price
+            uint highestSellPrice = tokens[tokenIndex].highestSellPrice;
+            // check if this is the lowest price from all or the first one
+            if(highestSellPrice == 0 || highestSellPrice < priceInWei)
+            {
+                if(curSellPrice == 0)
+                {
+                    // This is the first order
+                    tokens[tokenIndex].curSellPrice = priceInWei;
+                    tokens[tokenIndex].sellBook[priceInWei].lowerPrice = 0;
+                    tokens[tokenIndex].sellBook[priceInWei].higherPrice = 0;
+
+                }
+                else
+                {
+                    // It's the highest price
+                    // find the current highest price and change it's higherPrice value
+                    tokens[tokenIndex].sellBook[highestSellPrice].higherPrice = priceInWei;
+                    tokens[tokenIndex].sellBook[priceInWei].lowerPrice = highestSellPrice;
+                    tokens[tokenIndex].sellBook[priceInWei].higherPrice = 0;
+
+                }
+                tokens[tokenIndex].highestSellPrice = priceInWei;
+            }
+            else if(curSellPrice > priceInWei)
+            {
+                // The offer to sell is the lowest one. We don;t need to find the right spot
+                tokens[tokenIndex].sellBook[priceInWei].lowerPrice = 0;
+                tokens[tokenIndex].sellBook[priceInWei].higherPrice = curSellPrice;
+                tokens[tokenIndex].sellBook[curSellPrice].lowerPrice = priceInWei;
+                tokens[tokenIndex].curSellPrice = priceInWei;
+            }
+            else
+            {
+                // We are somwhere in the middle. We need to find the right spot first
+                uint price = tokens[tokenIndex].curSellPrice; // the lowest price
+                bool placeFound = false;
+                while(price < highestSellPrice && placeFound)
+                {
+                    if(price < priceInWei
+                    && tokens[tokenIndex].sellBook[price].higherPrice > priceInWei)
+                    {
+                        // Set lowerPrice and higherPrice of new order
+                        tokens[tokenIndex].sellBook[priceInWei].lowerPrice = price;
+                        tokens[tokenIndex].sellBook[priceInWei].higherPrice = tokens[tokenIndex].sellBook[price].higherPrice;
+                        // Adapt previous price higherPrice
+                        tokens[tokenIndex].sellBook[price].higherPrice = priceInWei;
+                        // Adapt nex price lowerPrice
+                        tokens[tokenIndex].sellBook[tokens[tokenIndex].sellBook[price].higherPrice].lowerPrice = priceInWei;
+
+                        placeFound = true;
+                    }
+                    else
+                    {
+                        price = tokens[tokenIndex].sellBook[price].higherPrice;
+                    }
+                }
+
+            }
+        }
+
+    }
     
     //////////////////////////////
     // CANCEL LIMIT ORDER LOGIC //
