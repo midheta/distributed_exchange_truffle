@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fe23dd90-ad19-4dc1-9f2c-39bf3e6c2908" name="Default Changelist" comment="- Implemented: BuyToken, getOrderBook functions">
+      <change beforePath="$PROJECT_DIR$/build/contracts/ApproveAndCallFallBack.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/ERC20Interface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/Exchange.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/FixedSupplyToken.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/Migrations.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/Owned.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/SafeMath.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/Exchange.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Exchange.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/FixedSupplyToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/FixedSupplyToken.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/Migrations.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Migrations.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/owned.sol" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1587929691">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="7" />
+          <entry key="sol" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="7" />
+          <entry key="PLAIN_TEXT" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="1890" />
+          <entry key="sol" value="63" />
+          <entry key="txt" value="197" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="1890" />
+          <entry key="PLAIN_TEXT" value="260" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>1_initial_migration</find>
+      <find>TokenAdded</find>
+      <find>getBuy</find>
+      <find>buyToken</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/Desktop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/D-3422-FilteringOfOUsByContractAndAssignedServices/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/D-3422-FilteringOfOUsByContractAndAssignedServices/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/D-3422-FilteringOfOUsByContractAndAssignedServices/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/D-3422-FilteringOfOUsByContractAndAssignedServices/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2231-OperativeCockpit-SlowQuery/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2231-OperativeCockpit-SlowQuery/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2231-OperativeCockpit-SlowQuery/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2231-OperativeCockpit-SlowQuery/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2251-ExecuteProcessWrongImpl/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2251-ExecuteProcessWrongImpl/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2251-ExecuteProcessWrongImpl/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2251-ExecuteProcessWrongImpl/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2253-ContractQualityKPI/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2253-ContractQualityKPI/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2253-ContractQualityKPI/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2253-ContractQualityKPI/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2256-ProjectCockpitDuplicateIssues/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2256-ProjectCockpitDuplicateIssues/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2256-ProjectCockpitDuplicateIssues/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2256-ProjectCockpitDuplicateIssues/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2256-ProjectCockpitDuplicateIssues/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2260-NewProductEndpoint/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2260-NewProductEndpoint/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2260-NewProductEndpoint/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2260-NewProductEndpoint/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2289-Adapt204Response/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2289-Adapt204Response/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2289-Adapt204Response/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2289-Adapt204Response/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2315-ChangeResponsiblePersonValue/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2315-ChangeResponsiblePersonValue/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2315-ChangeResponsiblePersonValue/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2315-ChangeResponsiblePersonValue/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2317-ScheduleView-FixTime/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2317-ScheduleView-FixTime/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2317-ScheduleView-FixTime/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2317-ScheduleView-FixTime/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2318-OperationalCockpit-AddMissingInfoToPOI/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2318-OperationalCockpit-AddMissingInfoToPOI/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2318-OperationalCockpit-AddMissingInfoToPOI/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2318-OperationalCockpit-AddMissingInfoToPOI/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2325-FixIssueWithDiffResults/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2335-Create-New-WO-and-New-SR  /develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2335-Create-New-WO-and-New-SR  /develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2335-Create-New-WO-and-New-SR  /frontend/rapido-operative" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2335-Create-New-WO-and-New-SR  /hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2335-Create-New-WO-and-New-SR  /hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2344-OperativeCockpit-NinosFeedback/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2344-OperativeCockpit-NinosFeedback/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2354-VIewSRANdWO-EndpointForWorkListGrid/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2354-VIewSRANdWO-EndpointForWorkListGrid/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2354-VIewSRANdWO-EndpointForWorkListGrid/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2354-VIewSRANdWO-EndpointForWorkListGrid/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2372-UpdateNinoContractData/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2372-UpdateNinoContractData/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2372-UpdateNinoContractData/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2373-UnitTestsForPOSTsrAndWo/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2373-UnitTestsForPOSTsrAndWo/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2373-UnitTestsForPOSTsrAndWo/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2373-UnitTestsForPOSTsrAndWo/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2373-UnitTestsForPOSTsrAndWo/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-ImplementUnitTestsForLOVendpointForTeams/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-ImplementUnitTestsForLOVendpointForTeams/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-ImplementUnitTestsForLOVendpointForTeams/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-ImplementUnitTestsForLOVendpointForTeams/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-LOV-EndpointsForTeams/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-LOV-EndpointsForTeams/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-LOV-EndpointsForTeams/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2385-LOV-EndpointsForTeams/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2391-AddNewDataToQueries/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2391-OperativeCockpitGrid-AddTwoNewColumns/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2391-OperativeCockpitGrid-AddTwoNewColumns/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2391-OperativeCockpitGrid-AddTwoNewColumns/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2391-OperativeCockpitGrid-AddTwoNewColumns/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2427-ReimplementPartySecurity/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2427-ReimplementPartySecurity/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2427-ReimplementPartySecurity/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2427-ReimplementPartySecurity/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2437-Operative-ResolveDuplicating/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2437-Operative-ResolveDuplicating/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2437-Operative-ResolveDuplicating/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2437-Operative-ResolveDuplicating/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2437-Operative-ResolveDuplicating/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2466-SchedulingVIewIsNotPresentingRescheduledWO/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2467-OperationalCockpit-SlowPagingInSchedulingView /develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2467-OperationalCockpit-SlowPagingInSchedulingView /develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2467-OperationalCockpit-SlowPagingInSchedulingView /hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2467-OperationalCockpit-SlowPagingInSchedulingView /hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2477-OC-AdditionalDataOnExistingModelForGrid/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2477-OC-AdditionalDataOnExistingModelForGrid/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2477-OC-AdditionalDataOnExistingModelForGrid/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2477-OC-AdditionalDataOnExistingModelForGrid/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2540-RetrieveSetForService/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2540-RetrieveSetForService/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2540-RetrieveSetForService/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2540-RetrieveSetForService/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2547-CancelProcessIssues/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2547-CancelProcessIssues/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2547-CancelProcessIssues/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2547-CancelProcessIssues/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2554-FixIssuesWithSecurityOnOPC/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2563-MissingDocDataRelatedToDocItem/develo/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2563-MissingDocDataRelatedToDocItem/develo/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2563-MissingDocDataRelatedToDocItem/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2563-MissingDocDataRelatedToDocItem/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2605-RedirectWO-Teams/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2605-RedirectWO-Teams/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2605-RedirectWO-Teams/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2605-RedirectWO-Teams/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2666-EndpointForRetrievingSetRelatedItemDetails/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2666-EndpointForRetrievingSetRelatedItemDetails/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2666-EndpointForRetrievingSetRelatedItemDetails/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2666-EndpointForRetrievingSetRelatedItemDetails/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2673-IssueWithCreatingNewContractItemDet/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2673-IssueWithCreatingNewContractItemDet/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2673-IssueWithCreatingNewContractItemDet/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2673-IssueWithCreatingNewContractItemDet/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2700-ContractProductsEndPointShouldBeOptimized/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2700-ContractProductsEndPointShouldBeOptimized/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2700-ContractProductsEndPointShouldBeOptimized/optimization/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2700-ContractProductsEndPointShouldBeOptimized/optimization/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2703-OperationCockpitUnitTests/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2703-OperationCockpitUnitTests/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2703-OperationCockpitUnitTests/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2703-OperationCockpitUnitTests/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2703-OperationCockpitUnitTests/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2704-EnableFiltering/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2704-EnableFiltering/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2704-EnableFiltering/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2704-EnableFiltering/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2717-ReimplementRedirectWO/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2717-ReimplementRedirectWO/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2717-ReimplementRedirectWO/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2717-ReimplementRedirectWO/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2725-WO-RedirectionIssues/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2725-WO-RedirectionIssues/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2725-WO-RedirectionIssues/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2725-WO-RedirectionIssues/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2728-OperationalCockpit-WO-EmployeeNameNotShown/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2728-OperationalCockpit-WO-EmployeeNameNotShown/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2728-OperationalCockpit-WO-EmployeeNameNotShown/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2728-OperationalCockpit-WO-EmployeeNameNotShown/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2735-OC-JSONParserErrorOnCreateWOFromSRaction/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2735-OC-JSONParserErrorOnCreateWOFromSRaction/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2735-OC-JSONParserErrorOnCreateWOFromSRaction/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2735-OC-JSONParserErrorOnCreateWOFromSRaction/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2737-OperationalCockpit-ListCountVsGraphCount-NotTheSame/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2737-OperationalCockpit-ListCountVsGraphCount-NotTheSame/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2737-OperationalCockpit-ListCountVsGraphCount-NotTheSame/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2737-OperationalCockpit-ListCountVsGraphCount-NotTheSame/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2740-OperationsCockpit-MapPins/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2740-OperationsCockpit-MapPins/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2740-OperationsCockpit-MapPins/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2740-OperationsCockpit-MapPins/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2741-OperationalCockpit-ScheduleView/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2741-OperationalCockpit-ScheduleView/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2741-OperationalCockpit-ScheduleView/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2741-OperationalCockpit-ScheduleView/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2743-OP_CP-QualityView-Reclamation/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2743-OP_CP-QualityView-Reclamation/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2743-OP_CP-QualityView-Reclamation/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2743-OP_CP-QualityView-Reclamation/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2744-OperationalCOckpit-CapacityView/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2744-OperationalCOckpit-CapacityView/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2744-OperationalCOckpit-CapacityView/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2744-OperationalCOckpit-CapacityView/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2778-SearchAsset/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2778-SearchAsset/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2790-OperationalCockpit-QualityViewGraphConditionFix/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2790-OperationalCockpit-QualityViewGraphConditionFix/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2790-OperationalCockpit-QualityViewGraphConditionFix/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2790-OperationalCockpit-QualityViewGraphConditionFix/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2792-CapacityView-ChangeFiltersForTasks/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2792-CapacityView-ChangeFiltersForTasks/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2792-CapacityView-ChangeFiltersForTasks/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2792-CapacityView-ChangeFiltersForTasks/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2798-UpdateCSVfiles-UpdatedocDateFieldAndMakeDataFor_REDIRECT_WO_action/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2798-UpdateCSVfiles-UpdatedocDateFieldAndMakeDataFor_REDIRECT_WO_action/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2798-UpdateCSVfiles-UpdatedocDateFieldAndMakeDataFor_REDIRECT_WO_action/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2798-UpdateCSVfiles-UpdatedocDateFieldAndMakeDataFor_REDIRECT_WO_action/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2803-ImplementEndpoint-RetrieveEmployeesForTeam/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2803-ImplementEndpoint-RetrieveEmployeesForTeam/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2803-ImplementEndpoint-RetrieveEmployeesForTeam/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2803-ImplementEndpoint-RetrieveEmployeesForTeam/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2840-AdaptCSVfilesToMatchTaskAndWOLocationInfo/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2840-AdaptCSVfilesToMatchTaskAndWOLocationInfo/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2840-AdaptCSVfilesToMatchTaskAndWOLocationInfo/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2840-AdaptCSVfilesToMatchTaskAndWOLocationInfo/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2874-OperationalCockpit-CodeRefactoring/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2874-OperationalCockpit-CodeRefactoring/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2874-OperationalCockpit-CodeRefactoring/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2874-OperationalCockpit-CodeRefactoring/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2875-IssueWithEndpointForRetrievingDocumentItems/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2875-IssueWithEndpointForRetrievingDocumentItems/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2875-IssueWithEndpointForRetrievingDocumentItems/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2875-IssueWithEndpointForRetrievingDocumentItems/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2878-OperationalCockpit-AddDependencyBetweenGridsAndBottomLeftGraphs/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2878-OperationalCockpit-AddDependencyBetweenGridsAndBottomLeftGraphs/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2878-OperationalCockpit-AddDependencyBetweenGridsAndBottomLeftGraphs/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2878-OperationalCockpit-AddDependencyBetweenGridsAndBottomLeftGraphs/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2888-SaveDocumentItemDetWithNonExistingMaterial/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2901-ProcessUpdate/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2901-ProcessUpdate/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2901-ProcessUpdate/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2901-ProcessUpdate/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2935-NewUnitTestsForRequestProcessFlow/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2946-RetrieveUnrelatedSRsForSIT_I-Endpoint/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2946-RetrieveUnrelatedSRsForSIT_I-Endpoint/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2946-RetrieveUnrelatedSRsForSIT_I-Endpoint/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2946-RetrieveUnrelatedSRsForSIT_I-Endpoint/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2951-ImplementPOSTandPUTforSIT_I/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2951-ImplementPOSTandPUTforSIT_I/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2951-ImplementPOSTandPUTforSIT_I/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2951-ImplementPOSTandPUTforSIT_I/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2978-OperationalCockpit-FixSortAndSearchIssues/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2988-UpdateProcessFlowForSRAndRequest/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2988-UpdateProcessFlowForSRAndRequest/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2988-UpdateProcessFlowForSRAndRequest/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2988-UpdateProcessFlowForSRAndRequest/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2990-UpdateProcessFlowForSR/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2990-UpdateProcessFlowForSR/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2990-UpdateProcessFlowForSR/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-2990-UpdateProcessFlowForSR/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3012-OperationalCockpit-ApplyNinoFeedback/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3012-OperationalCockpit-ApplyNinoFeedback/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3012-OperationalCockpit-ApplyNinoFeedback/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3012-OperationalCockpit-ApplyNinoFeedback/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3023-ApplyFixesOnUpdateProcessFlow-Request/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3023-ApplyFixesOnUpdateProcessFlow-Request/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3023-ApplyFixesOnUpdateProcessFlow-Request/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3023-ApplyFixesOnUpdateProcessFlow-Request/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3029-ReimplementProcessFlowForSIT_I/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3029-ReimplementProcessFlowForSIT_I/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3029-ReimplementProcessFlowForSIT_I/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3029-ReimplementProcessFlowForSIT_I/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3061-AdaptExistingEndpointForRetrievingSRsForSIT_I/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3061-AdaptExistingEndpointForRetrievingSRsForSIT_I/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3061-AdaptExistingEndpointForRetrievingSRsForSIT_I/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3061-AdaptExistingEndpointForRetrievingSRsForSIT_I/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3065-OperationalCockpit-ImplementUnitTestsForCapacityView/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3065-OperationalCockpit-ImplementUnitTestsForCapacityView/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3074-RetrieveSRforSIT_I-UpgradeQueryPerformance/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3074-RetrieveSRforSIT_I-UpgradeQueryPerformance/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3074-RetrieveSRforSIT_I-UpgradeQueryPerformance/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3074-RetrieveSRforSIT_I-UpgradeQueryPerformance/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3082-ProcessFlowCorrections/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3082-ProcessFlowCorrections/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3082-ProcessFlowCorrections/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3082-ProcessFlowCorrections/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3090-BugFixesOnWOProcessFlow/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3090-BugFixesOnWOProcessFlow/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3098-ModifyRequestToSRMapping/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3098-ModifyRequestToSRMapping/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3098-ModifyRequestToSRMapping/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3098-ModifyRequestToSRMapping/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3102-RefactorSecurityForRequest/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3102-RefactorSecurityForRequest/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3102-RefactorSecurityForRequest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3102-RefactorSecurityForRequest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3107-AdaptRetrievingTeamsForServiceSet/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3107-AdaptRetrievingTeamsForServiceSet/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3107-AdaptRetrievingTeamsForServiceSet/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3107-AdaptRetrievingTeamsForServiceSet/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3108-GenerateLocationsForDocumentsFromRequest/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3108-GenerateLocationsForDocumentsFromRequest/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3108-GenerateLocationsForDocumentsFromRequest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3108-GenerateLocationsForDocumentsFromRequest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3116-EndpointForRelatedDocsTab/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3116-EndpointForRelatedDocsTab/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3116-EndpointForRelatedDocsTab/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3116-EndpointForRelatedDocsTab/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3118-RelateCreatedWOWithRequisitionAndSRWithSO/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3118-RelateCreatedWOWithRequisitionAndSRWithSO/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3118-RelateCreatedWOWithRequisitionAndSRWithSO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3118-RelateCreatedWOWithRequisitionAndSRWithSO/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3155-TestFrontendAndBugFixing/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3155-TestFrontendAndBugFixing/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3155-TestFrontendAndBugFixing/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3155-TestFrontendAndBugFixing/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3171-AutomaticNameForCustomerRequestNameField/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3171-AutomaticNameForCustomerRequestNameField/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3171-AutomaticNameForCustomerRequestNameField/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3171-AutomaticNameForCustomerRequestNameField/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3173-Contracts-OptimizeSearchOfAreaParameters/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3173-Contracts-OptimizeSearchOfAreaParameters/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3173-Contracts-OptimizeSearchOfAreaParameters/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3193-CustomerRequestPrintAction/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3193-CustomerRequestPrintAction/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3193-CustomerRequestPrintAction/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3193-CustomerRequestPrintAction/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3195-WorkOrderPrintAction/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3195-WorkOrderPrintAction/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3195-WorkOrderPrintAction/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3195-WorkOrderPrintAction/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3238-ExternalSolutionDescriptionCalculation/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3238-ExternalSolutionDescriptionCalculation/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3238-ExternalSolutionDescriptionCalculation/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3238-ExternalSolutionDescriptionCalculation/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3239-CreateInternalWOFromExternalWO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3244-CombineDocumentRel1AndRel2Results/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3244-CombineDocumentRel1AndRel2Results/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3244-CombineDocumentRel1AndRel2Results/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3244-CombineDocumentRel1AndRel2Results/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3251-ExpandOMWOCockpitResponse/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3251-ExpandOMWOCockpitResponse/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3251-ExpandOMWOCockpitResponse/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3251-ExpandOMWOCockpitResponse/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3269-OPM-ResolveIssueWithDateFilter/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3269-OPM-ResolveIssueWithDateFilter/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3269-OPM-ResolveIssueWithDateFilter/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3269-OPM-ResolveIssueWithDateFilter/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3295-ImplementRecentlyAddedFieldsOnHTMLTemplates/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3295-ImplementRecentlyAddedFieldsOnHTMLTemplates/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3295-ImplementRecentlyAddedFieldsOnHTMLTemplates/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3295-ImplementRecentlyAddedFieldsOnHTMLTemplates/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3301-TransferNewFieldsFromCRtoChildrenDocuments/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3301-TransferNewFieldsFromCRtoChildrenDocuments/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3301-TransferNewFieldsFromCRtoChildrenDocuments/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3301-TransferNewFieldsFromCRtoChildrenDocuments/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3306-RedirectWO-ServiceActionsUpdates/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3306-RedirectWO-ServiceActionsUpdates/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3306-RedirectWO-ServiceActionsUpdates/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3306-RedirectWO-ServiceActionsUpdates/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3308-WorkflowLoopConditionAndLogs/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3308-WorkflowLoopConditionAndLogs/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3308-WorkflowLoopConditionAndLogs/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3308-WorkflowLoopConditionAndLogs/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3318-CompleteTaskActionTimeout/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3327-WorkflowAutomaticStateTransitions/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3327-WorkflowAutomaticStateTransitions/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3327-WorkflowAutomaticStateTransitions/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3327-WorkflowAutomaticStateTransitions/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3348-WOTransitionsAndCRdependencies/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3348-WOTransitionsAndCRdependencies/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3348-WOTransitionsAndCRdependencies/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3348-WOTransitionsAndCRdependencies/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3414-ProposeForCancellationAndCancelActionUpdates/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3414-ProposeForCancellationAndCancelActionUpdates/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3427-ProcessingEngine-GenericParameterInclusion/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3427-ProcessingEngine-GenericParameterInclusion/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3427-ProcessingEngine-GenericParameterInclusion/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3427-ProcessingEngine-GenericParameterInclusion/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3432-ModifyReturnForCorrection/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3432-ModifyReturnForCorrection/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3432-ModifyReturnForCorrection/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3432-ModifyReturnForCorrection/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3442-CR-RevokeActionUpdates/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3442-CR-RevokeActionUpdates/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3442-CR-RevokeActionUpdates/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3442-CR-RevokeActionUpdates/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3443-TAProposeForCancellationUpdate/dvelop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3443-TAProposeForCancellationUpdate/dvelop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3443-TAProposeForCancellationUpdate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3443-TAProposeForCancellationUpdate/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3448-TaskStartTraveling/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3448-TaskStartTraveling/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3448-TaskStartTraveling/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3448-TaskStartTraveling/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3514-ResolveIssueWithContractParamsEndpoint/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3514-ResolveIssueWithContractParamsEndpoint/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3514-ResolveIssueWithContractParamsEndpoint/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3514-ResolveIssueWithContractParamsEndpoint/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3514-ResolveIssueWithContractParamsEndpoint/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3524-TopicImplementation/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3524-TopicImplementation/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3524-TopicImplementation/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3524-TopicImplementation/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3553-processingEngineUpdates/ivan_branch/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-3553-processingEngineUpdates/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-Amar/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-OPCockpit-UnitTests/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-Sabina/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-Sabina/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-RelateAssetsAndContract/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-RelateAssetsAndContract/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-RelateAssetsAndContract/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-RelateAssetsAndContract/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-UpgradeMapViewPerformance/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-UpgradeMapViewPerformance/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-UpgradeMapViewPerformance/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-XXXX-UpgradeMapViewPerformance/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-YYYY-ActivationOfAssetFromWO/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-YYYY-ActivationOfAssetFromWO/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-YYYY-ActivationOfAssetFromWO/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-YYYY-ActivationOfAssetFromWO/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-hotfix:RD-2391-AddNewDataToQueries/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD-hotfix:RD-2391-AddNewDataToQueries/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD_2732-MyTasksTab/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD_2732-MyTasksTab/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD_2732-MyTasksTab/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/RD_2732-MyTasksTab/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/UpdateCSVfilesForAppConfig/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/UpdateCSVfilesForAppConfig/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/UpdateCSVfilesForAppConfig/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/UpdateCSVfilesForAppConfig/feature/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/csv_change_process_def/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/2901/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/develop-latest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/develop-latest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/latest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/develop_latest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/doc-hierarchy/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/fixOPCsecurity/deelop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/fixOPCsecurity/deelop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/fixOPCsecurity/hotfix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/fixOPCsecurity/hotfix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/frontend/rapido-admin" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/frontend/rapido-central" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/frontend/rapido-operative" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/frontend/rapido-process" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/latest_develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/latest_develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/process-async/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/rapido-central" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido-latest/rapido-operative" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3450-TaskReturnForCorrectionActionUpdate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3520-ThymeleafEncodingIssues/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3520-ThymeleafEncodingIssues/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3520-ThymeleafEncodingIssues/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3523-CompletedWOActions-Workflow/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3557-RedirectWOToTheSameOU/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3557-RedirectWOToTheSameOU/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3557-RedirectWOToTheSameOU/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3557-RedirectWOToTheSameOU/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3560-InternalAndExternalSolutionDescr/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3560-InternalAndExternalSolutionDescr/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3560-InternalAndExternalSolutionDescr/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3562-UpdateCompleteWOInternalAction/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3562-UpdateCompleteWOInternalAction/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3562-UpdateCompleteWOInternalAction/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3562-UpdateCompleteWOInternalAction/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3582-ExposeDocumenCommentOnCR/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3582-ExposeDocumenCommentOnCR/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3582-ExposeDocumenCommentOnCR/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3582-ExposeDocumenCommentOnCR/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3593-UpdateTaskRevision/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3599-ReturnForCorrectionBugFixes-new/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3599-ReturnForCorrectionBugFixes-new/old_branch/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3599-ReturnForCorrectionBugFixes-new/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3599-ReturnForCorrectionBugFixes/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3601-ProposeForCancellation-CreateNewWO/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3601-ProposeForCancellation-CreateNewWO/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3601-ProposeForCancellation-CreateNewWO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3601-ProposeForCancellation-CreateNewWO/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3601-ProposeForCancellation-CreateNewWO/temp/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3614-ActionCommentsNotVisible/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3614-ActionCommentsNotVisible/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3614-ActionCommentsNotVisible/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3614-ActionCommentsNotVisible/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3644-CreateRequisitionFromWO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3644-CreateRequisitionFromWO/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3645-UpdateActionsWithPopups/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3645-UpdateActionsWithPopups/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3660-RedirectedWOAddressChange/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3660-RedirectedWOAddressChange/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3661-RedirectedWO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3661-RedirectedWO/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3686-AssetInfoEndpointUpdate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3687-StockAndLogistics-WOProcessingUpdate/feature/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3687-StockAndLogistics-WOProcessingUpdate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3687-StockAndLogistics-WOProcessingUpdate/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3691-UpdateWOTemplate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3691-UpdateWOTemplate/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3704-UpdateDocumentHistoryLogEndpointResult/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3710-WO-RedirectWORedirectService/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3710-WO-RedirectWORedirectService/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3720-WORelease/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3720-WORelease/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3752-EngineIssue/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3752-EngineIssue/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3752-ProcessEngine-ResolveValidationIssueForSRAndWO/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3757-CRSignOffDataMissing/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3757-CRSignOffDataMissing/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3799-EnableTags/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3804-ProposeCancellationEngineUpdate/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3804-ProposeCancellationEngineUpdate/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3830-PrintWO-FixTemplateOutput/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3830-PrintWO-FixTemplateOutput/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3837-ControlCode-RfCfromWODocumentDetails/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3837-ControlCode-RfCfromWODocumentDetails/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3839-MobileOptimisedCommentsEndpoint/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3839-MobileOptimisedCommentsEndpoint/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3848-PrintCR-IncorrectOutput/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3848-PrintCR-IncorrectOutput/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3852-SetAssetAsMaintained-InSignOff/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3852-SetAssetAsMaintained-InSignOff/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3854-RemoveDoubleSelectors/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3854-RemoveDoubleSelectors/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3859-SignOffV4.2-Update/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3859-SignOffV4.2-Update/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3860-OperationalCockpitGridError/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD-3860-OperationalCockpitGridError/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD_3703-StartTravellingActionFix/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/RD_3703-StartTravellingActionFix/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop-latest/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop-latest/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop-latest/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop_final/min-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/develop_final/rapido-backend" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/frontend/rapido-operative" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/frontend/rapido-portal" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/frontend/rapido-process" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/frontend/rapido-stock" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/rapido/rapido-backend" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/test/02_deposit_withdraw_token.js" />
+        <option value="$PROJECT_DIR$/contracts/owned.sol" />
+        <option value="$PROJECT_DIR$/test/03_trading_simple.js" />
+        <option value="$PROJECT_DIR$/contracts/FixedSupplyToken.sol" />
+        <option value="$PROJECT_DIR$/contracts/Exchange.sol" />
+        <option value="$PROJECT_DIR$/truffle-config.js" />
+        <option value="$PROJECT_DIR$/migrations/1_initial_migration.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1440" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="distributed_exchange_truffle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed_exchange_truffle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed_exchange_truffle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed_exchange_truffle" type="462c0819:PsiDirectoryNode" />
+              <item name="contracts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed_exchange_truffle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed_exchange_truffle" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="distributed_exchange_truffle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="distributed_exchange_truffle" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548149756443" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe23dd90-ad19-4dc1-9f2c-39bf3e6c2908" name="Default Changelist" comment="" />
+      <created>1547548251980</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547548251980</updated>
+      <workItem from="1547548253827" duration="14400000" />
+      <workItem from="1547825463799" duration="200000" />
+      <workItem from="1548059602827" duration="5817000" />
+      <workItem from="1548150219595" duration="111000" />
+      <workItem from="1548150634349" duration="234000" />
+      <workItem from="1548150932957" duration="6000" />
+    </task>
+    <task id="LOCAL-00001" summary="- Added functions for the Events related to deposit and withdrawal functions for Tokens and Ether&#10;- Included events into test">
+      <created>1547564682230</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547564682231</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- Implemented: BuyToken, getOrderBook functions">
+      <created>1547825651753</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1547825651753</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="20768000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1440" y="23" width="1920" height="1000" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2630458" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Added functions for the Events related to deposit and withdrawal functions for Tokens and Ether&#10;- Included events into test" />
+    <MESSAGE value="- Implemented: BuyToken, getOrderBook functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Implemented: BuyToken, getOrderBook functions" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/03_trading_simple.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/owned.sol" />
+    <entry file="file://$PROJECT_DIR$/contracts/Exchange.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="467" column="7" selection-start-line="467" selection-start-column="7" selection-end-line="467" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/02_deposit_withdraw_token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/01_fixed_supply_token_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="67" selection-start-column="67" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Migrations.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/FixedSupplyToken.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/truffle-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" selection-start-line="44" selection-start-column="3" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/1_initial_migration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

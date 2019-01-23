@@ -1,10 +1,10 @@
-pragma solidity >=0.4.21 <0.6.0;
+pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
 
-
-import "./owned.sol";
 import "./FixedSupplyToken.sol";
+//import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
-contract Exchange is owned{
+contract Exchange {
     ///////////////////////
     // GENERAL STRUCTURE //
     ///////////////////////
@@ -45,6 +45,11 @@ contract Exchange is owned{
         uint curSellPrice;
         uint highestSellPrice;
         uint amountSellPrices;
+    }
+
+    struct Temp {
+        uint price;
+        uint amount;
     }
 
     // We support a max of 255 tokens
@@ -113,7 +118,7 @@ contract Exchange is owned{
     // TOKEN MANAGMENT //
     ////////////////////
     // ********* Only for admin *********
-    function addToken(string memory symbolName, address erc20TokenAddress) public onlyowner{
+    function addToken(string memory symbolName, address erc20TokenAddress) public {
         require(!hasToken(symbolName));
         symbolNameIndex ++;
         tokens[symbolNameIndex].symbolName = symbolName;
@@ -130,7 +135,7 @@ contract Exchange is owned{
         return true;
     }
 
-    function getSymbolIndex(string memory symbolName) internal returns (uint8) {
+    function getSymbolIndex(string memory symbolName) internal view returns (uint8) {
 
         for(uint8 i = 1; i <= symbolNameIndex; i++)
         {
@@ -143,13 +148,13 @@ contract Exchange is owned{
 
     }
 
-    function getSymbolIndexOrThrow(string memory symbolName) public returns (uint8) {
+    function getSymbolIndexOrThrow(string memory symbolName) public view returns (uint8) {
         uint8 index = getSymbolIndex(symbolName);
         require(index > 0);
         return index;
     }
 
-    function stringsEqual(string storage _a, string memory _b) internal returns (bool) {
+    function stringsEqual(string storage _a, string memory _b) internal view returns (bool) {
         bytes storage a = bytes(_a);
         bytes memory b = bytes(_b);
         if(a.length != b.length)
@@ -199,52 +204,91 @@ contract Exchange is owned{
         return tokenBalanceForAddress[msg.sender][index];
     }
 
-     /////////////////////////////
+
+
+    /////////////////////////////
     // ORDER BOOK - BID ORDERS //
     /////////////////////////////
-  function getBuyOrderBook(string memory symbolName) public returns (uint[] memory, uint[] memory) {
-        uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
-        uint[] memory arrPricesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
-        uint[] memory arrVolumesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
+     function getBuyOrderBook(string memory symbolName) public view returns (/*uint[] memory, uint[] memory*/Temp[] memory) {
+              uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
+            //  uint[] memory arrPricesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
+           //   uint[] memory arrVolumesBuy = new uint[](tokens[tokenNameIndex].amountBuyPrices);
+              Temp[] memory tempArray = new Temp[](tokens[tokenNameIndex].amountBuyPrices);
 
-        uint whilePrice = tokens[tokenNameIndex].lowestBuyPrice;
-        uint counter = 0;
-        if (tokens[tokenNameIndex].curBuyPrice > 0) {
-            while (whilePrice <= tokens[tokenNameIndex].curBuyPrice) {
-                arrPricesBuy[counter] = whilePrice;
-                uint volumeAtPrice = 0;
-                uint offers_key = 0;
+              uint whilePrice = tokens[tokenNameIndex].lowestBuyPrice;
+              uint counter = 0;
+              if (tokens[tokenNameIndex].curBuyPrice > 0) {
+                  while (whilePrice <= tokens[tokenNameIndex].curBuyPrice) {
+                      tempArray[counter].price = whilePrice;
+                     // arrPricesBuy[counter] = whilePrice;
+                      uint volumeAtPrice = 0;
+                      uint offers_key = 0;
 
-                offers_key = tokens[tokenNameIndex].buyBook[whilePrice].offers_key;
-                while (offers_key <= tokens[tokenNameIndex].buyBook[whilePrice].offers_length) {
-                    volumeAtPrice += tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amount;
-                    offers_key++;
-                }
+                      offers_key = tokens[tokenNameIndex].buyBook[whilePrice].offers_key;
+                      while (offers_key <= tokens[tokenNameIndex].buyBook[whilePrice].offers_length) {
+                          volumeAtPrice += tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amount;
+                          offers_key++;
+                      }
 
-                arrVolumesBuy[counter] = volumeAtPrice;
+                      tempArray[counter].amount = volumeAtPrice;
+                      //arrVolumesBuy[counter] = volumeAtPrice;
 
-                //next whilePrice
-                if (whilePrice == tokens[tokenNameIndex].buyBook[whilePrice].higherPrice) {
-                    break;
-                }
-                else {
-                    whilePrice = tokens[tokenNameIndex].buyBook[whilePrice].higherPrice;
-                }
-                counter++;
+                      //next whilePrice
+                      if (whilePrice == tokens[tokenNameIndex].buyBook[whilePrice].higherPrice) {
+                          break;
+                      }
+                      else {
+                          whilePrice = tokens[tokenNameIndex].buyBook[whilePrice].higherPrice;
+                      }
+                      counter++;
 
-            }
-        }
+                  }
+              }
 
-        return (arrPricesBuy, arrVolumesBuy);
+              return tempArray;//(arrPricesBuy, arrVolumesBuy);
 
-    }
+          }
+
+
 
      ////////////////////////////
     // ODER BOOK - ASK ORDERS //
     ////////////////////////////
-   //   function getSellOrderBook(string symbolName) pure returns(uint[], uint[]){
+     function getSellOrderBook(string memory symbolName) public view returns (Temp[] memory){
+           uint8 tokenNameIndex = getSymbolIndexOrThrow(symbolName);
+           Temp[] memory tempArray = new Temp[](tokens[tokenNameIndex].amountSellPrices);
 
-   // }
+           uint whilePrice = tokens[tokenNameIndex].curSellPrice;
+           uint counter = 0;
+           if(tokens[tokenNameIndex].curSellPrice > 0) {
+               while(whilePrice <= tokens[tokenNameIndex].highestSellPrice) {
+                   tempArray[counter].price = whilePrice;
+                   uint volumeAtPrice = 0;
+                   uint offers_key = 0;
+
+                   offers_key = tokens[tokenNameIndex].sellBook[whilePrice].offers_key;
+                   while(offers_key <= tokens[tokenNameIndex].sellBook[whilePrice].offers_length) {
+                       volumeAtPrice += tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amount;
+                       offers_key ++;
+                   }
+                   tempArray[counter].amount = volumeAtPrice;
+
+                   // next while price
+                   if(whilePrice == tokens[tokenNameIndex].sellBook[whilePrice].higherPrice)
+                   {
+                       break;
+                   }
+                   else
+                   {
+                       whilePrice = tokens[tokenNameIndex].sellBook[whilePrice].higherPrice;
+                   }
+                   counter ++;
+
+               }
+           }
+           return tempArray;
+       }
+
 
      ////////////////////////////
     // NEW ODER - BID ORDER //
