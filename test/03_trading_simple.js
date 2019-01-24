@@ -3,46 +3,7 @@ var exchange = artifacts.require("./Exchange.sol");
 
 contract('Simple order test', function (accounts) {
 
-    /*  before(function () {
-          var instanceExchange;
-          var instanceToken;
-          return exchange.deployed().then(function (instance) {
-              instanceExchange = instance;
-              // console.log(web3);
-              return instanceExchange.depositEther({from: accounts[0], value: web3.utils.toWei('1', 'ether')});
-          }).then(function (txtResult) {
-              return fixedSupplyToken.deployed();
-          }).then(function (myTokenInstance) {
-              instanceToken = myTokenInstance;
-              return instanceExchange.addToken("FIXED", instanceToken.address);
-          }).then(function (txtResult) {
-              // .log(txtResult);
-              return instanceToken.approve(instanceExchange.address, 2000);
-          }).then(function (txtResult) {
-              return instanceExchange.depositToken("FIXED", 2000);
-          });
-      });
 
-      it("should be possible to add a limit buy order", function () {
-          var myExchangeInstance;
-          let abi = require('./exchange-abi.js');
-          let blockContract;
-          return exchange.deployed().then(function (exchangeInstance) {
-              myExchangeInstance = exchangeInstance;
-              blockContract = new web3.eth.Contract(abi, myExchangeInstance.address,
-                  {from: accounts[0], gas: 1000000});
-              //return myExchangeInstance.getBuyOrderBook.call("FIXED");
-              return blockContract.methods.buyToken("FIXED", web3.toWei(1, "finney"), 5)
-                  .send({from: acounts[0]});
-          }).then(function ())
-          console.log("Uso1");
-          blockContract.methods.getBuyOrderBook("FIXED").call({from: accounts[0]}).then(function (result) {
-              console.log("Uso2");
-              console.log(result);
-          });
-
-      });
-  });*/
 
     before(function () {
         var instanceExchange;
@@ -118,8 +79,10 @@ contract('Simple order test', function (accounts) {
             myExchangeInstance = instance;
             return myExchangeInstance.getSellOrderBook.call("FIXED");
         }).then(function (orderBook) {
+            console.log("getSellOrderBook called");
             return myExchangeInstance.sellToken("FIXED", web3.utils.toWei('3', 'finney'), 5);
         }).then(function (txResult) {
+            console.log("sellToken called: " + txResult);
             /**
              * Assert the logs
              */
