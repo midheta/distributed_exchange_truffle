@@ -4,7 +4,6 @@ var exchange = artifacts.require("./Exchange.sol");
 contract('Simple order test', function (accounts) {
 
 
-
     before(function () {
         var instanceExchange;
         var instanceToken;
@@ -73,6 +72,7 @@ contract('Simple order test', function (accounts) {
     });
 
 
+
     it("should be possible to add two limit sell orders", function () {
         var myExchangeInstance;
         return exchange.deployed().then(function (instance) {
@@ -97,5 +97,8 @@ contract('Simple order test', function (accounts) {
             assert.equal(orderBook[1].length, 2, "OrderBook should have 2 sell volume elements");
         });
     });
+
+
+
 
 });
